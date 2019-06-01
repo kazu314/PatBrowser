@@ -1,0 +1,83 @@
+﻿<Page
+    x:Class="PatBrowser.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PatBrowser"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Frame>
+            <NavigationView x:Name="PbTopNav" PaneDisplayMode="Top">
+                <NavigationView.MenuItems>
+                    <NavigationViewItemHeader Content="請求項"/>
+                    <NavigationViewItem x:Name="ClaimsFileMenu"  Content="File" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Tapped="ClaimsSelectAsync" />
+                    <NavigationViewItemSeparator />
+                    <NavigationViewItemHeader Content="明細書"/>
+                    <NavigationViewItem x:Name="DescriptonFileMenu"    Content="File" />
+                    <NavigationViewItemSeparator />
+                    <NavigationViewItemHeader Content="図面"/>
+                    <NavigationViewItem x:Name="FiguresFileMenu"   Content="File" />
+                    <AutoSuggestBox x:Name="DescriptionSearchBox"  HorizontalAlignment="Left" Margin="10,10,0,0" Width="364" QuerySubmitted="DescriptionSearchQuerySubmitted">
+                        <AutoSuggestBox.QueryIcon>
+                            <SymbolIcon Symbol="Find" />
+                        </AutoSuggestBox.QueryIcon>
+                    </AutoSuggestBox>
+                </NavigationView.MenuItems>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="2*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--<RichTextBlock x:Name="ClaimsRichTextBlock"  Grid.Row="0" Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>-->
+                        <RichEditBox x:Name="ClaimsRichEditBox"  Grid.Row="0" Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
+                        <Image x:Name="FigsImage" Grid.Row="1" Grid.Column="0"/>
+                    </Grid>
+                    <!--<RichTextBlock x:Name="DescriptionRichTextBlock" Grid.Row="0" Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>-->                    
+                    <RichEditBox x:Name="DescriptionRichEditBox" Grid.Row="0" Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+                    
+                    <!--
+                    <TextBox x:Name="DescriptionTextBox" Grid.Row="0" Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+                    -->
+                    <Canvas x:Name="SpectrumBar"   Grid.Row="0" Grid.Column="1"/>
+                </Grid>
+                <!--
+                <SplitView DisplayMode="Overlay">
+                    <SplitView.Pane>
+                        <Grid>
+                            <TextBlock Text="This">
+                            </TextBlock>
+                        </Grid>
+                    </SplitView.Pane>
+                    <Grid>
+                        <TextBlock Text="That">
+                        </TextBlock>
+                    </Grid>
+                </SplitView>
+                -->
+                <!--
+                <RelativePanel Width="auto" Height="auto">
+                    <Rectangle x:Name="rectangle1" Fill="red" Height="100" Width="100" />
+                </RelativePanel>
+                -->
+
+
+            </NavigationView>
+        </Frame>
+
+    </Grid>
+</Page>
